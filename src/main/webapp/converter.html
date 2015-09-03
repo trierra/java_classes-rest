@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+
+<div id="resultArea"></div>
+hello
+
+<input type="text" placeholder="enter currency" id="currencyToConvert"/>
+<script>
+    $(function(){
+        $("#filter").click(function(){
+            var amountToConvert = $('#currencyToConvert').val();
+            var exchangeAPI = "http://localhost:8080/restExample/rest/converter/" + amountToConvert;
+            $.getJSON(exchangeAPI, function(data){
+                document.getElementById("resultArea").innerHTML = "result = " + data.result;
+            })
+        });
+    });
+</script>
+<input type="button" id="filter" name="filter" value="Filter" />
+
+
+</body>
+</html>

@@ -13,23 +13,14 @@ public class CurrencyConverterRest {
 
     @GET
     @Produces("application/json")
-    @Path("dte/{amount}")
-    public Response dollarsToEuro(@PathParam("amount") Double dollar ){
-
-        Double euro = dollar * 1.5;
+    @Path("{amount}")
+    public Response dToE(@PathParam("amount") Integer amount) {
 
         JSONObject object = new JSONObject();
-        object.put("total", euro);
+
+        object.put("result", amount * 5);
 
         return Response.status(200).entity(object.toString()).build();
-
-    }
-
-    @GET
-    @Produces("application/json")
-    @Path("etd")
-    public Response euroToDollar(){
-        return Response.status(200).build();
     }
 
 }
